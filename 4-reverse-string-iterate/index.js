@@ -1,9 +1,8 @@
-//TODO fill in comment template
 /*
-Description:
-Input:
-Output:
-Usage: 
+Description: This program will look for a string argument and will display a message showing the format of the command if it doesn't find one.
+Input: The input is a string
+Output: The string reversed
+Usage: node 4-reverse-string-iterate <string>
 */
 
 // get input using getargs
@@ -12,29 +11,33 @@ let input = getargs.getStringArg()
 
 function reverseWithFullIteration(str) {
     let result = '';
-    // TODO loop from end of str (str.length-1) to beginning
-    for ( ) {
-        // TODO add the letter in the current position to the result string.
+    for (let i = str.length - 1; i >= 0; i--) {
+        result += str [i];
     }
     return result;
 }
 
 function reverseWithHalfIteration(str) {
-    // STRETCH TODO write a function that reverses the string but only iterates over half of the input string.
-}
+        let result = []
+        //swap characters from back and front
+        for (let i = 0; i < str.length / 2; i++) {
+            result[i] = str[(str.length - i)]
+            result[str.length - i] = str[i]
+        }
+        return result.join('')
+    }
 
 //test that it is a string
-//TODO check for string argument and if no string is entered provide a usage statement and quit
-if ( ) {
-    // TODO provide a usage statement
+if (!input) {
+    console.log("usage: node 4-reverse-string-iterate <string>");
 }
+
 else {
-    // use functions to reverse string
-    console.log("result with full iteration", reverseWithFullIteration(input));
-
-    // STRETCH TODO output the result of your reverseWithHalfIteration function
-
+    // uses string methods to reverse the string
+    console.log(input.split('').reverse().join(''));
 }
+ 
+console.log("result with half iteration", reverseWithHalfIteration(input));
 
 
 
